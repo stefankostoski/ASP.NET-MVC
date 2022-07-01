@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Burger menu";
+}
+
+@model List<BurgerViewModel>
+
+    <h1>Burger menu</h1>
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Vegan</th>
+      <th scope="col">Vegetarian</th>
+      <th scope="col">Has fries</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+   <tbody>
+       @{
+           foreach(var burger in Model)
+        {            
+                <tr>
+                  <td>@burger.Id</td>
+                  <td><img src="@burger.Image" width="100px" class="mx-auto d-block"/></td>
+                  <td>@burger.Name</td>
+                  <td>@burger.Price</td>
+                  <td>@burger.IsVegan</td>
+                  <td>@burger.IsVegetarian</td>
+                  <td>@burger.HasFries</td>
+                  <td>
+                    <a asp-action="CreateEditMenuItem" class="btn btn-warning" asp-route-id="@burger.Id">Edit</a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@burger.Id">Delete</a>
+                  </td>
+                </tr>
+        }
+        }
+   </tbody> 
+ </table>

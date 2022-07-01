@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Orders";
+}
+
+@model List<OrderViewModel>
+
+    <h1>Orders</h1>
+ <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">FullName</th>
+      <th scope="col">Address</th>
+      <th scope="col">IsDelivered</th>
+      <th scope="col">Location</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+   <tbody>
+       @{
+           foreach(var order in Model)
+        {            
+                <tr>
+                  <td>@order.Id</td>
+                  <td>@order.FullName</td>
+                  <td>@order.Address</td>
+                  <td>@order.IsDelivered</td>
+                  <td>@order.Location</td>
+                  <td>
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@order.Id">Details</a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@order.Id">Delete</a>
+                  </td>
+                </tr>
+        }
+        }
+   </tbody> 
+ </table>
