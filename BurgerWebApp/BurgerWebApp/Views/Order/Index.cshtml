@@ -4,34 +4,35 @@
 
 @model List<OrderViewModel>
 
-    <h1>Orders</h1>
+<h1>Orders</h1>
+<a asp-action="" asp-controller="Order" class="btn btn-primary">Make new order</a>
  <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col">Id</th>
       <th scope="col">FullName</th>
       <th scope="col">Address</th>
-      <th scope="col">IsDelivered</th>
+      <th scope="col">Is delivered</th>
       <th scope="col">Location</th>
       <th scope="col"></th>
     </tr>
   </thead>
    <tbody>
-       @{
-           foreach(var order in Model)
-        {            
-                <tr>
-                  <td>@order.Id</td>
-                  <td>@order.FullName</td>
-                  <td>@order.Address</td>
-                  <td>@order.IsDelivered</td>
-                  <td>@order.Location</td>
+
+       @for(var i=0;i<Model.Count;i++)
+        {
+            <tr>
+                  <td>@Model[i].Id</td>
+                  <td>@Model[i].FullName</td>
+                  <td>@Model[i].Address</td>
+                  <td>@Model[i].IsDelivered</td>
+                  <td>@Model[i].Location</td>
                   <td>
-                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@order.Id">Details</a>
-                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@order.Id">Delete</a>
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@Model[i].Id">Details</a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@Model[i].Id">Delete</a>
                   </td>
                 </tr>
-        }
+            
         }
    </tbody> 
  </table>

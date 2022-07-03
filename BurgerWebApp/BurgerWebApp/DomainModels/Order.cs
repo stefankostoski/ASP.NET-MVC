@@ -7,9 +7,9 @@ namespace BurgerWebApp.DomainModels
         public int Id { get; set; }
         public string FullName { get; set; }
         public string Address { get; set; }
-        public Burger Burgers { get; set; }
         public IsDelivered IsDelivered { get; set; }
         public string Location { get; set; }
+        public List<OrderDetails> OrderDetails { get; set; }
 
         public Order()
         {
@@ -22,6 +22,7 @@ namespace BurgerWebApp.DomainModels
             Address = address;
             IsDelivered = isdelivered;
             Location = location;
+            OrderDetails = new List<OrderDetails>();
         }
     }
 }

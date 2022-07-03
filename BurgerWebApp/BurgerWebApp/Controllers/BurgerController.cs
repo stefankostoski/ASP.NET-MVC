@@ -10,5 +10,10 @@ namespace BurgerWebApp.Controllers
             var menu = Storage.BurgerDb.Burgers.Select(x => x.ToViewModel()).ToList();
             return View(menu);
         }
+
+        public IActionResult Details(int id)
+        {
+           return View();
+        }
     }
 }

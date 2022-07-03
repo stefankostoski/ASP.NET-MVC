@@ -13,7 +13,8 @@ namespace BurgerWebApp.Mappers
                 FullName = order.FullName,
                 Address = order.Address,
                 IsDelivered = order.IsDelivered,
-                Location = order.Location,
+                OrderDetails = order.OrderDetails,
+                Location = order.Location
             };
         }
     }
