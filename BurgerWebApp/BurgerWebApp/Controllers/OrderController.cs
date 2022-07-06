@@ -1,5 +1,4 @@
-﻿using BurgerWebApp.Mappers;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace BurgerWebApp.Controllers
 {
@@ -7,7 +6,7 @@ namespace BurgerWebApp.Controllers
     {
         public IActionResult Index()
         {
-            var orders = Storage.BurgerDb.Orders.Select(x=>x.ToViewModel()).ToList();
+            var orders = BurgerDb.Orders.Select(x => x.ToViewModel()).ToList();
             return View(orders);
         }
 

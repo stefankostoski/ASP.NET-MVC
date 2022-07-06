@@ -7,7 +7,7 @@ namespace BurgerWebApp.Controllers
     {
         public IActionResult Index()
         {
-            var menu = Storage.BurgerDb.Burgers.Select(x => x.ToViewModel()).ToList();
+            var menu = BurgerDb.Burgers.Select(x => x.ToViewModel()).ToList();
             return View(menu);
         }
 

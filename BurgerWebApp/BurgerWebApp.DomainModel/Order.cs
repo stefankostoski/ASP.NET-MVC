@@ -15,14 +15,14 @@ namespace BurgerWebApp.DomainModels
         {
 
         }
-        public Order(int id, string fullName, string address, IsDelivered isdelivered, string location)
+        public Order(int id, string fullName, string address, IsDelivered isdelivered, string location, List<OrderDetails> orderdetails)
         {
             Id = id;
             FullName = fullName;
             Address = address;
             IsDelivered = isdelivered;
             Location = location;
-            OrderDetails = new List<OrderDetails>();
+            OrderDetails = orderdetails;
         }
     }
 }
