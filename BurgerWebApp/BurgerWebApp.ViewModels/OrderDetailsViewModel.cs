@@ -1,6 +1,4 @@
-﻿using BurgerWebApp.DomainModels;
-
-namespace BurgerWebApp.Models
+﻿namespace BurgerWebApp.Models
 {
     public class OrderDetailsViewModel
     {

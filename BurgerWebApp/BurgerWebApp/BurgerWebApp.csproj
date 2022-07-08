@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BurgerWebApp.Services\BurgerWebApp.Services.csproj" />
     <ProjectReference Include="..\BurgerWebApp.ViewModels\BurgerWebApp.ViewModels.csproj" />
   </ItemGroup>
 

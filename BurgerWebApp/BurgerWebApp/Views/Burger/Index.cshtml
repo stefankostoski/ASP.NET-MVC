@@ -1,12 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Burger menu";
 }
-
 @model List<BurgerViewModel>
 
  <h1>Burger menu</h1>
  <br />
- <a asp-action="CreateEditPizza" asp-controller="Burger" class="btn btn-primary">Add new</a>
+
  <table style="margin-top:20px;" class="table table-bordered">
   <thead>
     <tr>
@@ -33,7 +32,7 @@
                       <td>@burger.IsVegetarian</td>
                       <td>@burger.HasFries</td>
                       <td>
-                        <a asp-action="CreateEditMenuItem" class="btn btn-warning" asp-route-id="@burger.Id">Edit</a>
+                        <a asp-action="CreateEditBurger" class="btn btn-warning" asp-route-id="@burger.Id">Edit</a>
                         <a asp-action="Delete" class="btn btn-danger" asp-route-id="@burger.Id">Delete</a>
                       </td>
                     </tr>
