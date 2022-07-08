@@ -9,20 +9,18 @@ namespace BurgerWebApp.DomainModels
         public string Address { get; set; }
         public IsDelivered IsDelivered { get; set; }
         public string Location { get; set; }
-        public List<OrderDetails> OrderDetails { get; set; }
 
         public Order()
         {
 
         }
-        public Order(int id, string fullName, string address, IsDelivered isdelivered, string location, List<OrderDetails> orderdetails)
+        public Order(int id, string fullName, string address, IsDelivered isdelivered, string location)
         {
             Id = id;
             FullName = fullName;
             Address = address;
             IsDelivered = isdelivered;
             Location = location;
-            OrderDetails = orderdetails;
         }
     }
 }

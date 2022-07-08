@@ -19,52 +19,20 @@ namespace BurgerWebApp.Storage
         public static List<Order> Orders = new List<Order>
         {
             new Order(CommonHelper.GetRandomId(),"Stefan Kostoski", "Ilindenska bb.", IsDelivered.Yes, "Karposh"),
-            //{
-            //   OrderDetails = new List<OrderDetails>()
-            //   {
-            //       new OrderDetails(1, Burgers[0].Id, 3)
-            //   }
-            //},
-
             new Order(CommonHelper.GetRandomId(),"Risto Panchevski", "Uluca i broj", IsDelivered.Yes, "Karposh"),
-            //{
-            //   OrderDetails = new List<OrderDetails>
-            //   {
-            //       new OrderDetails(2, Burgers[2].Id, 2),
-            //       new OrderDetails(2, Burgers[3].Id, 1)
-
-            //   }
-            //},
             new Order(CommonHelper.GetRandomId(),"Radmila Sokolovska", "Partizanska bb.", IsDelivered.Yes, "Centar"),
-            //{
-            //   OrderDetails = new List<OrderDetails>
-            //   {
-            //       new OrderDetails(3, Burgers[2].Id, 1),
-            //       new OrderDetails(3, Burgers[4].Id, 1)
-
-            //   }
-            //},
             new Order(CommonHelper.GetRandomId(),"Marko Markoski", "Tetovska Ulica bb.", IsDelivered.Yes, "Aerodrom"),
-            //{
-            //   OrderDetails = new List<OrderDetails>()
-            //   {
-            //       new OrderDetails(4, Burgers[5].Id, 1)
-            //   }
-            //},
             new Order(CommonHelper.GetRandomId(),"Mirko Mirkoski", "Zelezara bb.", IsDelivered.Yes, "Zelezara"),
-            //{
-            //   OrderDetails = new List<OrderDetails>()
-            //   {
-            //       new OrderDetails(5, Burgers[1].Id, 1)
-            //   }
-            //},
             new Order(CommonHelper.GetRandomId(),"Trpe Trpeski", "Ilindenska bb.", IsDelivered.Yes, "Vodno")
-            //{
-            //    OrderDetails = new List < OrderDetails >()
-            //    {
-            //        new OrderDetails(4, Burgers[5].Id, 1)
-            //    }
-            //}
+        };
+
+        public static List<OrderDetails> OrderDetails = new List<OrderDetails>
+        {
+            new OrderDetails(CommonHelper.GetRandomId(),Orders[1].Id, Burgers[0].Id,Burgers[0].Price, 4),
+            new OrderDetails(CommonHelper.GetRandomId(),Orders[1].Id, Burgers[1].Id,Burgers[1].Price, 2),
+            new OrderDetails(CommonHelper.GetRandomId(),Orders[2].Id, Burgers[2].Id,Burgers[2].Price, 1),
+            new OrderDetails(CommonHelper.GetRandomId(),Orders[4].Id, Burgers[3].Id,Burgers[3].Price, 5),
+            new OrderDetails(CommonHelper.GetRandomId(),Orders[3].Id, Burgers[4].Id,Burgers[4].Price, 3)
         };
     }
 }

@@ -9,7 +9,6 @@ namespace BurgerWebApp.Models
         public string FullName { get; set; }
         public string Address { get; set; }
         public IsDelivered IsDelivered { get; set; }
-        public List<OrderDetails> OrderDetails { get; set; }
         public string Location { get; set; }
     }
 }

@@ -10,7 +10,9 @@ namespace BurgerWebApp.Mappers
             return new OrderDetailsViewModel
             {
                 Id = orderdetails.Id,
+                OrderId = orderdetails.OrderId,
                 BurgerId = orderdetails.BurgerId,
+                PricePerItem = orderdetails.PricePerItem,
                 Quantity = orderdetails.Quantity
             };
         }
