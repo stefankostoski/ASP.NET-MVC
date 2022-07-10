@@ -3,6 +3,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//builder.Services.AddTransient<IBurgerService, BurgerService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
