@@ -1,9 +1,14 @@
+using BurgerWebApp.Services.Abstraction;
+using BurgerWebApp.Services.Implementation;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//builder.Services.AddTransient<IBurgerService, BurgerService>();
+builder.Services.AddTransient<IBurgerService, BurgerService>();
+builder.Services.AddTransient<IOrderService, OrderService>();
+builder.Services.AddTransient<IOrderDetailsService, OrderDetailsService>();
 
 var app = builder.Build();
 
