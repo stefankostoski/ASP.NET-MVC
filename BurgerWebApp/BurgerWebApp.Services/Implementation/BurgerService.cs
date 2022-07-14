@@ -42,7 +42,7 @@ namespace BurgerWebApp.Services.Implementation
             if (string.IsNullOrEmpty(model.Name)
                 || (model.Price <= 0)
                 || string.IsNullOrEmpty(model.Image)
-                || (model.IsVegetarian==null)
+                || (model.IsVegetarian == null)
                 || (model.IsVegan == null)
                 || (model.HasFries == null))
             {
