@@ -11,18 +11,26 @@ namespace BurgerWebApp.Services.Implementation
     public class BurgerService : IBurgerService
     {
         private readonly IRepository<Burger> _burgerRepository;
-        private readonly IRepository<OrderDetails> _orderDetailsRepository;
 
         public BurgerService(IRepository<Burger> burgerRepository, IRepository<OrderDetails> orderDetailsRepository)
         {
             _burgerRepository = burgerRepository;
-            _orderDetailsRepository = orderDetailsRepository;
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public List<BurgerViewModel> GetAll()
         {
             var burgers = _burgerRepository.GetAll().Select(x => x.ToViewModel()).OrderBy(x => x.Name).ToList();
             return burgers;
+        }
+
+        public List<SelectListItem> GetBurgerSelectList()
+        {
+            throw new NotImplementedException();
         }
 
         public BurgerViewModel GetById(int id)
@@ -73,30 +81,6 @@ namespace BurgerWebApp.Services.Implementation
             existingBurger.Name = model.Name;
 
             _burgerRepository.Update(existingBurger);
-        }
-
-        public void Delete(int id)
-        {
-            var existingBurger = _burgerRepository.GetById(id);
-
-            if (existingBurger == null)
-            {
-                throw new Exception($"Burger with id: {id} does not exist");
-            }
-
-            var menuItems = _orderDetailsRepository.GetAll().Where(x => x.BurgerId == id).ToList();
-
-            foreach (var menuItem in menuItems)
-            {
-                _orderDetailsRepository.DeleteById(menuItem.Id);
-            }
-
-            _burgerRepository.DeleteById(existingBurger.Id);
-        }
-
-        public List<SelectListItem> GetBurgerSelectList()
-        {
-            return _burgerRepository.GetAll().Select(x => new SelectListItem(x.Name, x.Id.ToString())).ToList();
         }
     }
 }

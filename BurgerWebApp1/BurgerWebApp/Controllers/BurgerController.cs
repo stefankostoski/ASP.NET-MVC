@@ -6,6 +6,10 @@ namespace BurgerWebApp.Controllers
     public class BurgerController : Controller
     {
         private readonly IBurgerService _burgerService;
+        public BurgerController(IBurgerService burgerService)
+        {
+            _burgerService = burgerService;
+        }
         public IActionResult Index()
         {
             var burgers = _burgerService.GetAll();
@@ -16,5 +20,6 @@ namespace BurgerWebApp.Controllers
         {
             return View();
         }
+
     }
 }
