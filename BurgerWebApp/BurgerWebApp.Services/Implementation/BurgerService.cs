@@ -1,4 +1,5 @@
 ﻿using BurgerWebApp.DataAccess.Abstraction;
+using BurgerWebApp.DomainModel;
 using BurgerWebApp.DomainModels;
 using BurgerWebApp.Helpers;
 using BurgerWebApp.Mappers;
@@ -12,7 +13,7 @@ namespace BurgerWebApp.Services.Implementation
     {
         private readonly IRepository<Burger> _burgerRepository;
 
-        public BurgerService(IRepository<Burger> burgerRepository, IRepository<OrderDetails> orderDetailsRepository)
+        public BurgerService(IRepository<Burger> burgerRepository)
         {
             _burgerRepository = burgerRepository;
         }

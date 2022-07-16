@@ -1,23 +1,33 @@
 ﻿using BurgerWebApp.DataAccess.Abstraction;
-using BurgerWebApp.DomainModels;
+using BurgerWebApp.DomainModel;
 using BurgerWebApp.Storage;
 
 namespace BurgerWebApp.DataAccess.Repositories
 {
     public class OrderDetailsRepository : IRepository<OrderDetails>
     {
-        
-        public List<OrderDetails> GetAll() => BurgerDb.OrderDetails;
+
+        private readonly BurgerDb _dbContext;
+
+        public OrderDetailsRepository(BurgerDb dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public List<OrderDetails> GetAll()
+        {
+            return _dbContext.OrderDetails.ToList();
+        }
        
 
         public OrderDetails GetById(int id)
         {
-            return BurgerDb.OrderDetails.FirstOrDefault(x => x.Id == id);
+            return _dbContext.OrderDetails.FirstOrDefault(x => x.Id == id);
         }
 
         public void Insert(OrderDetails entity)
         {
-            BurgerDb.OrderDetails.Add(entity);
+            _dbContext.OrderDetails.Add(entity);
         }
 
         public void Update(OrderDetails entity)
@@ -25,8 +35,8 @@ namespace BurgerWebApp.DataAccess.Repositories
             var item = GetById(entity.Id);
             if (item != null)
             {
-                int index = BurgerDb.OrderDetails.IndexOf(item);
-                BurgerDb.OrderDetails[index] = entity;
+                _dbContext.OrderDetails.Update(entity);
+                _dbContext.SaveChanges();
             }
         }
         public void DeleteById(int id)
@@ -34,7 +44,7 @@ namespace BurgerWebApp.DataAccess.Repositories
             var item = GetById(id);
             if (item != null)
             {
-                BurgerDb.OrderDetails.Remove(item);
+                _dbContext.OrderDetails.Remove(item);
             }
         }
     }

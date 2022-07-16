@@ -3,6 +3,8 @@ using BurgerWebApp.DataAccess.Repositories;
 using BurgerWebApp.DomainModels;
 using BurgerWebApp.Services.Abstraction;
 using BurgerWebApp.Services.Implementation;
+using BurgerWebApp.Storage;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,11 @@ builder.Services.AddTransient<IRepository<Burger>, BurgerRepository>();
 builder.Services.AddTransient<IRepository<Order>, OrderRepository>();
 
 builder.Services.AddTransient<IBurgerService, BurgerService>();
+builder.Services.AddTransient<IOrderService, OrderService>();
+
+
+builder.Services.AddDbContext<BurgerDb>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

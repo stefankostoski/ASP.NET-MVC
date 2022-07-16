@@ -7,17 +7,27 @@ namespace BurgerWebApp.DataAccess.Repositories
     public class OrderRepository : IRepository<Order>
     {
 
-        public List<Order> GetAll() => BurgerDb.Orders;
+        private readonly BurgerDb _dbContext;
+
+        public OrderRepository(BurgerDb dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public List<Order> GetAll()
+        { 
+          return  _dbContext.Orders.ToList();
+        }
 
 
         public Order GetById(int id)
         {
-            return BurgerDb.Orders.FirstOrDefault(x => x.Id == id);
+            return _dbContext.Orders.FirstOrDefault(x => x.Id == id);
         }
 
         public void Insert(Order entity)
         {
-            BurgerDb.Orders.Add(entity);
+            _dbContext.Orders.Add(entity);
         }
 
         public void Update(Order entity)
@@ -25,8 +35,8 @@ namespace BurgerWebApp.DataAccess.Repositories
             var item = GetById(entity.Id);
             if (item != null)
             {
-                int index = BurgerDb.Orders.IndexOf(item);
-                BurgerDb.Orders[index] = entity;
+                _dbContext.Orders.Update(entity);
+                _dbContext.SaveChanges();
             }
         }
         public void DeleteById(int id)
@@ -34,7 +44,7 @@ namespace BurgerWebApp.DataAccess.Repositories
             var item = GetById(id);
             if (item != null)
             {
-                BurgerDb.Orders.Remove(item);
+                _dbContext.Orders.Remove(item);
             }
         }
     }

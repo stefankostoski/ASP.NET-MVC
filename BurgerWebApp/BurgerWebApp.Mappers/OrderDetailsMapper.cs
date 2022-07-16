@@ -1,4 +1,4 @@
-﻿using BurgerWebApp.DomainModels;
+﻿using BurgerWebApp.DomainModel;
 using BurgerWebApp.Models;
 
 namespace BurgerWebApp.Mappers

@@ -6,20 +6,26 @@ namespace BurgerWebApp.DataAccess.Repositories
 {
     public class BurgerRepository : IRepository<Burger>
     {
+        private readonly BurgerDb _dbContext;
+
+        public BurgerRepository(BurgerDb dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
         public List<Burger> GetAll()
         {
-            return BurgerDb.Burgers.ToList();
+            return _dbContext.Burgers.ToList();
         }
 
         public Burger GetById(int id)
         {
-            return BurgerDb.Burgers.FirstOrDefault(x => x.Id == id);
+            return _dbContext.Burgers.FirstOrDefault(x => x.Id == id);
         }
 
         public void Insert(Burger entity)
         {
-            BurgerDb.Burgers.Add(entity);
+            _dbContext.Burgers.Add(entity);
         }
 
         public void Update(Burger entity)
@@ -27,8 +33,8 @@ namespace BurgerWebApp.DataAccess.Repositories
             var item = GetById(entity.Id);
             if (item != null)
             {
-                int index = BurgerDb.Burgers.IndexOf(item);
-                BurgerDb.Burgers[index] = entity;
+                _dbContext.Burgers.Update(entity);
+                _dbContext.SaveChanges();
             }
         }
         public void DeleteById(int id)
@@ -36,7 +42,7 @@ namespace BurgerWebApp.DataAccess.Repositories
             var item = GetById(id);
             if (item != null)
             {
-                BurgerDb.Burgers.Remove(item);
+                _dbContext.Burgers.Remove(item);
             }
         }
     }

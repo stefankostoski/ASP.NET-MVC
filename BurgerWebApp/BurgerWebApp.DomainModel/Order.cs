@@ -1,4 +1,5 @@
-﻿using BurgerWebApp.DomainModels.Enums;
+﻿using BurgerWebApp.DomainModel;
+using BurgerWebApp.DomainModels.Enums;
 
 namespace BurgerWebApp.DomainModels
 {
@@ -21,6 +22,7 @@ namespace BurgerWebApp.DomainModels
             Address = address;
             IsDelivered = isdelivered;
             Location = location;
+
         }
     }
 }
