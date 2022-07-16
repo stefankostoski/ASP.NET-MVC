@@ -18,20 +18,10 @@ namespace BurgerWebApp.Services.Implementation
             _burgerRepository = burgerRepository;
         }
 
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<BurgerViewModel> GetAll()
         {
             var burgers = _burgerRepository.GetAll().Select(x => x.ToViewModel()).OrderBy(x => x.Name).ToList();
             return burgers;
-        }
-
-        public List<SelectListItem> GetBurgerSelectList()
-        {
-            throw new NotImplementedException();
         }
 
         public BurgerViewModel GetById(int id)
@@ -82,6 +72,10 @@ namespace BurgerWebApp.Services.Implementation
             existingBurger.Name = model.Name;
 
             _burgerRepository.Update(existingBurger);
+        }
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

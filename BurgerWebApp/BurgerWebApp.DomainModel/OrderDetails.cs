@@ -15,9 +15,8 @@ namespace BurgerWebApp.DomainModel
         {
 
         }
-        public OrderDetails(int id, int orderId, int burgerId, decimal priceperitem, int quantity)
+        public OrderDetails(int orderId, int burgerId, decimal priceperitem, int quantity)
         {
-            Id = id;
             OrderId = orderId;
             BurgerId = burgerId;
             PricePerItem = priceperitem;

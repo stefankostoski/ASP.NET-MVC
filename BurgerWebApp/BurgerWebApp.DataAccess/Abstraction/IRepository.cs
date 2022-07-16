@@ -1,4 +1,6 @@
-﻿namespace BurgerWebApp.DataAccess.Abstraction
+﻿using BurgerWebApp.DomainModel;
+
+namespace BurgerWebApp.DataAccess.Abstraction
 {
     public interface IRepository<T>
     {
@@ -7,5 +9,6 @@
         void Insert(T entity);
         void Update(T entity);
         void DeleteById(int id);
+        void Add(OrderDetails orderItem);
     }
 }

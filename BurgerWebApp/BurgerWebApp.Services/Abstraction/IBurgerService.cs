@@ -9,6 +9,5 @@ namespace BurgerWebApp.Services.Abstraction
         BurgerViewModel GetById(int id);
         void Save(BurgerViewModel model);
         void Delete(int id);
-        List<SelectListItem> GetBurgerSelectList();
     }
 }

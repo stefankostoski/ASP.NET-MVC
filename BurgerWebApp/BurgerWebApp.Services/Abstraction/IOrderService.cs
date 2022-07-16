@@ -6,9 +6,8 @@ namespace BurgerWebApp.Services.Abstraction
     public interface IOrderService
     {
         List<OrderViewModel> GetAll();
-        OrderViewModel GetById(int id);
-        void Save(OrderViewModel model);
+        OrderViewModel Details(int id);
+        int Save(OrderViewModel model);
         void Delete(int id);
-        List<SelectListItem> GetBurgerSelectList();
     }
 }

@@ -1,37 +1,51 @@
 ﻿using BurgerWebApp.DataAccess.Abstraction;
 using BurgerWebApp.DomainModels;
+using BurgerWebApp.Mappers;
 using BurgerWebApp.Models;
 using BurgerWebApp.Services.Abstraction;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BurgerWebApp.Services.Implementation
 {
     public class OrderService : IOrderService
     {
         private readonly IRepository<Order> _orderRepository;
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
 
         public List<OrderViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var orders = _orderRepository.GetAll().Select(x => x.ToViewModel()).OrderBy(x => x.Id).ToList();
+            return orders;
         }
 
-        public List<SelectListItem> GetBurgerSelectList()
+        public OrderViewModel Details(int id)
         {
-            throw new NotImplementedException();
+            var order = _orderRepository.GetById(id);
+
+            if (order == null)
+            {
+                throw new Exception("Order not found");
+            }
+
+            return order.ToViewModel();
         }
 
-        public OrderViewModel GetById(int id)
+        public int Save(OrderViewModel model)
         {
-            throw new NotImplementedException();
-        }
+            var order = new Order(model.FullName, model.Address, model.IsDelivered, model.Location);
 
-        public void Save(OrderViewModel model)
+            _orderRepository.Insert(order);
+
+            return order.Id;
+        }
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var existingOrder = _orderRepository.GetById(id);
+
+            if (existingOrder == null)
+            {
+                throw new Exception($"Order with id {id} does not exist");
+            }
+
+            _orderRepository.DeleteById(existingOrder.Id);
         }
     }
 }

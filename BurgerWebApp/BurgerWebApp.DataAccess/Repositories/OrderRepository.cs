@@ -1,4 +1,5 @@
 ﻿using BurgerWebApp.DataAccess.Abstraction;
+using BurgerWebApp.DomainModel;
 using BurgerWebApp.DomainModels;
 using BurgerWebApp.Storage;
 
@@ -46,6 +47,11 @@ namespace BurgerWebApp.DataAccess.Repositories
             {
                 _dbContext.Orders.Remove(item);
             }
+        }
+
+        public void Add(OrderDetails orderItem)
+        {
+            throw new NotImplementedException();
         }
     }
 }

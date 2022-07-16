@@ -47,5 +47,10 @@ namespace BurgerWebApp.DataAccess.Repositories
                 _dbContext.OrderDetails.Remove(item);
             }
         }
+
+        public void Add(OrderDetails orderItem)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
