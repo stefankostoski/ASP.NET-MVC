@@ -57,52 +57,52 @@ namespace BurgerWebApp.Storage
                 );
 
 
-            //builder.Entity<Order>().HasData(
-            //      new Order(CommonHelper.GetRandomId(), "Stefan Kostoski", "Ilindenska bb.", IsDelivered.Yes, "Karposh")
-            //      {
-            //          Id = 1
-            //      },
-            //     new Order(CommonHelper.GetRandomId(), "Risto Panchevski", "Uluca i broj", IsDelivered.Yes, "Karposh")
-            //     {
-            //         Id = 2
-            //     },
-            //      new Order(CommonHelper.GetRandomId(), "Radmila Sokolovska", "Partizanska bb.", IsDelivered.Yes, "Centar")
-            //      {
-            //          Id = 3
-            //      },
-            //      new Order(CommonHelper.GetRandomId(), "Marko Markoski", "Tetovska Ulica bb.", IsDelivered.Yes, "Aerodrom")
-            //      {
-            //          Id = 4
-            //      },
-            //      new Order(CommonHelper.GetRandomId(), "Mirko Mirkoski", "Zelezara bb.", IsDelivered.Yes, "Zelezara")
-            //      {
-            //          Id = 5
-            //      },
-            //      new Order(CommonHelper.GetRandomId(), "Trpe Trpeski", "Ilindenska bb.", IsDelivered.Yes, "Vodno")
-            //      {
-            //          Id = 6
-            //      }
-            //  );
+            builder.Entity<Order>().HasData(
+                  new Order("Stefan Kostoski", "Ilindenska bb.", IsDelivered.Yes, "Karposh")
+                  {
+                      Id = 1
+                  },
+                 new Order("Risto Panchevski", "Uluca i broj", IsDelivered.Yes, "Karposh")
+                 {
+                     Id = 2
+                 },
+                  new Order("Radmila Sokolovska", "Partizanska bb.", IsDelivered.Yes, "Centar")
+                  {
+                      Id = 3
+                  },
+                  new Order("Marko Markoski", "Tetovska Ulica bb.", IsDelivered.Yes, "Aerodrom")
+                  {
+                      Id = 4
+                  },
+                  new Order("Mirko Mirkoski", "Zelezara bb.", IsDelivered.Yes, "Zelezara")
+                  {
+                      Id = 5
+                  },
+                  new Order("Trpe Trpeski", "Ilindenska bb.", IsDelivered.Yes, "Vodno")
+                  {
+                      Id = 6
+                  }
+              );
 
 
             //builder.Entity<OrderDetails>().HasData(
-            //     new OrderDetails(CommonHelper.GetRandomId(), Orders[1].Id, Burgers[0].Id, Burgers[0].Price, 4)
+            //     new OrderDetails(1, 0, Burgers[0].Price, 4)
             //     {
             //         Id = 1
             //     },
-            //    new OrderDetails(CommonHelper.GetRandomId(), Orders[1].Id, Burgers[1].Id, Burgers[1].Price, 2)
+            //    new OrderDetails(Orders[1].Id, Burgers[1].Id, Burgers[1].Price, 2)
             //    {
             //        Id = 2
             //    },
-            //    new OrderDetails(CommonHelper.GetRandomId(), Orders[2].Id, Burgers[2].Id, Burgers[2].Price, 1)
+            //    new OrderDetails(Orders[2].Id, Burgers[2].Id, Burgers[2].Price, 1)
             //    {
             //        Id = 3
             //    },
-            //    new OrderDetails(CommonHelper.GetRandomId(), Orders[4].Id, Burgers[3].Id, Burgers[3].Price, 5)
+            //    new OrderDetails(Orders[4].Id, Burgers[3].Id, Burgers[3].Price, 5)
             //    {
             //        Id = 4
             //    },
-            //    new OrderDetails(CommonHelper.GetRandomId(), Orders[3].Id, Burgers[4].Id, Burgers[4].Price, 3)
+            //    new OrderDetails(Orders[3].Id, Burgers[4].Id, Burgers[4].Price, 3)
             //    {
             //        Id = 5
             //    }

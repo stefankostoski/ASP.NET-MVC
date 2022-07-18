@@ -9,6 +9,10 @@ namespace BurgerWebApp.Services.Implementation
     public class OrderService : IOrderService
     {
         private readonly IRepository<Order> _orderRepository;
+        public OrderService(IRepository<Order> orderRepository)
+        {
+            _orderRepository = orderRepository;
+        }
 
         public List<OrderViewModel> GetAll()
         {

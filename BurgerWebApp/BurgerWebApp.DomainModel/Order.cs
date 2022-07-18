@@ -1,5 +1,4 @@
-﻿using BurgerWebApp.DomainModel;
-using BurgerWebApp.DomainModels.Enums;
+﻿using BurgerWebApp.DomainModels.Enums;
 
 namespace BurgerWebApp.DomainModels
 {
@@ -10,7 +9,6 @@ namespace BurgerWebApp.DomainModels
         public string Address { get; set; }
         public IsDelivered IsDelivered { get; set; }
         public string Location { get; set; }
-        public object OrderDetails { get; set; }
 
         public Order()
         {
